@@ -4,6 +4,7 @@ import Body from "./components/Body";
 import Login from "./components/Login";
 import Profile from "./components/Profile";
 import Feed from "./components/Feed";
+import ErrorPage from "./components/ErrorPage";
 import {Provider} from "react-redux"
 import appStore from "./utils/appStore";
 
@@ -20,6 +21,7 @@ function App() {
     <Route  path="/" element={<Feed/>}></Route>
     <Route path="/login" element={<Login/>}></Route>
     <Route path="/profile" element={<Profile/>}></Route>
+    <Route path="/error" element={<ErrorPage />} />
   </Route>
 </Routes>
 </BrowserRouter>
