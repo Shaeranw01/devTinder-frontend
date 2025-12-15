@@ -5,9 +5,11 @@ import { addUser } from '../utils/userSlice';
 import {useNavigate} from "react-router-dom";
 import { BASE_URL } from '../utils/constants';
 
+
 const Login = () => {
     const [emailId, setEmailId]=useState("meera@gmail.com");
     const [password, setPassword]=useState("Meera@12345");
+    const [error, setError]=useState("");
     const dispatch=useDispatch();
     const navigate=useNavigate();
     const handleLogin=async()=>{
@@ -21,7 +23,10 @@ const Login = () => {
         return navigate("/");
      }
      catch(err){
-        console.log(err)
+       console.error("err",err);
+       setError( err?.response?.data?.message ||
+        err?.response?.data ||
+        "Something went wrong!!")
      }
     }
   return (
@@ -49,7 +54,7 @@ const Login = () => {
       value={password}
       onChange={(e)=>setPassword(e.target.value)}
     />
-
+    <p className='text-red-600 text-sm'>{error}</p>
     <button className="btn btn-neutral w-full mt-6" onClick={()=>handleLogin()}>
       Login
     </button>
