@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import axios from "axios"
 import {useDispatch} from "react-redux";
-import { addFeed } from '../utils/feedSlice';
+import { addFeed, removeUserFromFeed } from '../utils/feedSlice';
 import {useNavigate} from "react-router-dom";
 import { BASE_URL } from '../utils/constants';
 import {useSelector } from "react-redux";
@@ -26,13 +26,13 @@ const Feed = () => {
         else navigate("/error")
        }
     }
-
+  
     useEffect(()=>{
      getFeed();
     },[])
   return (
     <div>
-   { feed.length>0 && <UserCard user={feed[0]}/>}
+   { feed.length>0 ? <UserCard user={feed[0]}/> : <h2 className='flex justify-center my-10'>No new users found!!</h2>}
     </div>
   )
 }
