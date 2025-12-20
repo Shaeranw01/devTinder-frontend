@@ -10,6 +10,7 @@ const Feed = () => {
     const dispatch=useDispatch();
     const navigate=useNavigate();
     const feed=useSelector(store=>store.feed);
+    console.log(feed);
     const getFeed=async()=>{
        if(feed.length>0) return ;
        try{

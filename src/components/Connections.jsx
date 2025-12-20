@@ -29,10 +29,10 @@ const Connections = () => {
     <div>
       <h1 className='text-xl text-bold flex justify-center my-10'>Connections</h1>
       {connections.map((connection)=>{
-        const {firstName, lastName, gender, age, photoURL, about}=connection;
+        const {_id,firstName, lastName, gender, age, photoURL, about}=connection;
         return (
             <div>
-            <div className="card card-side bg-pink-50 shadow-sm my-5 mx-auto w-1/2">
+            <div  key={_id} className="card card-side bg-pink-50 shadow-sm my-5 mx-auto w-1/2">
   <figure>
     <img
       src={photoURL}

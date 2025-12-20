@@ -54,7 +54,12 @@ const handleLogOut=async()=>{
           
           </Link>
         </li>
-        <li><a>Settings</a></li>
+        <li>
+          <Link to="/requests" className="justify-between">
+          Requests
+          
+          </Link>
+        </li>
         <li onClick={handleLogOut} ><a>Logout</a></li>
       </ul>
     </div>
