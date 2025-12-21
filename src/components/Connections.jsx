@@ -31,7 +31,7 @@ const Connections = () => {
       {connections.map((connection)=>{
         const {_id,firstName, lastName, gender, age, photoURL, about}=connection;
         return (
-            <div>
+   
             <div  key={_id} className="card card-side bg-pink-50 shadow-sm my-5 mx-auto w-1/2">
   <figure>
     <img
@@ -48,7 +48,7 @@ const Connections = () => {
     </div>
   </div>
 </div>
-            </div>
+         
         )
       })}
     </div>

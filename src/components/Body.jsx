@@ -36,11 +36,8 @@ const Body = () => {
   }
 
   useEffect(()=>{
-   
-
       fetchUser();
-
-    
+  
   },[])
   return (
     <div>
