@@ -10,6 +10,7 @@ import EditProfile from './EditProfile';
 const Profile = () => {
 
     const user=useSelector(store=>store.user);
+    console.log("profile", user);
   return (
     <div>
    {user && <EditProfile user={user}/>}
