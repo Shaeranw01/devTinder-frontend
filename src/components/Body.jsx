@@ -2,7 +2,7 @@ import React from 'react'
 import Navbar from './Navbar'
 import {Outlet} from "react-router-dom";
 import Footer from './Footer';
-import { addUser } from '../utils/userSlice';
+import { addUser,setAuthChecked } from '../utils/userSlice';
 import {useDispatch} from "react-redux";
 import { useEffect } from 'react';
 import {useNavigate} from "react-router-dom";
@@ -15,10 +15,12 @@ const Body = () => {
   const dispatch=useDispatch();
   const navigate=useNavigate();
   const userData=useSelector(store=>store.user);
+ 
 
   const fetchUser=async()=>{
      //make an api call only when there is no data in store, if we already have  a user no need to make an api call on each page reload
-    if(userData) return ;
+   if(userData) return
+
     try{
       const res=await axios.get(BASE_URL+"/profile/view",{
         withCredentials:true
@@ -32,7 +34,6 @@ const Body = () => {
 
      else navigate("/error")
     }
-
   }
 
   useEffect(()=>{
@@ -42,7 +43,7 @@ const Body = () => {
   return (
     <div>
       <Navbar/>
-      <Outlet/>
+      <Outlet /> 
       <Footer/>
     </div>
   )

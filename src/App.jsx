@@ -8,7 +8,9 @@ import Connections from "./components/Connections";
 import Requests from "./components/Requests";
 import ErrorPage from "./components/ErrorPage";
 import {Provider} from "react-redux"
-import appStore from "./utils/appStore";
+import { PersistGate } from "redux-persist/integration/react";
+
+import appStore, { persistor } from "./utils/appStore";
 
 
 function App() {
@@ -17,6 +19,7 @@ function App() {
   return (
     <>
     <Provider store={appStore}>
+    <PersistGate loading={null} persistor={persistor}>
 <BrowserRouter>
 <Routes>
   <Route path="/" element={<Body/>}>
@@ -29,7 +32,7 @@ function App() {
   </Route>
 </Routes>
 </BrowserRouter>
-
+</PersistGate>
 </Provider>
 
 

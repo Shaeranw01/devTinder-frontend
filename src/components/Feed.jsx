@@ -10,13 +10,11 @@ const Feed = () => {
     const dispatch=useDispatch();
     const navigate=useNavigate();
     const feed=useSelector(store=>store.feed);
-    console.log(feed);
     const getFeed=async()=>{
        if(feed.length>0) return ;
        try{
         const res=await axios.get(BASE_URL+"/feed", {withCredentials:true});
-        console.log("feed", res.data);
-        dispatch(addFeed(res.data))
+        dispatch(addFeed(res.data.data))
        }catch(err){
          //unauth user
          if(err?.response?.status===401){
@@ -30,11 +28,17 @@ const Feed = () => {
     useEffect(()=>{
      getFeed();
     },[])
-  return (
-    <div>
-   { feed.length>0 ? <UserCard user={feed[0]}/> : <h2 className='flex justify-center my-10'>No new users found!!</h2>}
-    </div>
-  )
+    return (
+        <div className="flex flex-col items-center px-2 sm:px-4">
+          {feed && feed.length > 0 ? (
+            feed.map((user) => <UserCard key={user._id} user={user} />)
+          ) : (
+            <h2 className="text-center text-pink-400 my-10">
+              No new users found!!
+            </h2>
+          )}
+        </div>
+      );
 }
 
 export default Feed
