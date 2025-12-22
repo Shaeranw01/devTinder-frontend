@@ -48,8 +48,8 @@ const UserCard = ({user}) => {
                             className='w-28 h-28 rounded-full border-2 border-pink-400'
                         />
                     </figure>
-                    <div className="card-body text-center text-pink-200 p-4">
-                        <h2 className="card-title text-xl font-bold mb-2">{firstName}</h2>
+                    <div className="card-body text-center items-center text-pink-200 p-4 ">
+                        <h2 className="card-title text-center justify-center w-full text-pink-400 text-bold text-lg">{firstName}</h2>
                         <p className="text-pink-100 mb-3">{about}</p>
                         <div className="card-actions justify-center gap-4">
                             <button className="btn btn-primary p-3 bg-pink-400 hover:bg-pink-500 text-black" onClick={() => handleSendRequest("ignored", _id)}>Ignore</button>
