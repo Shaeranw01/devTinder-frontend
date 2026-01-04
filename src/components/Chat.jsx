@@ -45,12 +45,7 @@ const Chat = () => {
         socketRef.current.disconnect();
       };
   },[userId, targetUserId])
-//   const bottomRef = useRef(null);
 
-//   // Auto-scroll to latest message
-//   useEffect(() => {
-//     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
-//   }, [messages]);
 
   const handleSend = () => {
     if (!newMessage.trim()) return;
