@@ -1,10 +1,10 @@
-import React from "react";
+
 
 import React from "react";
 
 const Premium = () => {
   return (
-    <div className="min-h-screen bg-black flex flex-col items-center justify-center px-4">
+    <div className=" bg-black flex flex-col items-center justify-center px-4 mt-16">
       <h1 className="text-3xl font-bold text-pink-400 mb-10">
         Choose Your Plan
       </h1>
