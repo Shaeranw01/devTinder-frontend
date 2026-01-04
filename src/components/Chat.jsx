@@ -38,11 +38,12 @@ const Chat = () => {
     if (!userId || !targetUserId) return;
     socketRef.current= createSocketConnection();
     socketRef.current.emit("joinChat",{firstName:loggedInUser.firstName, userId, targetUserId})
-    socketRef.current.on("messageReceived", ({firstName,text, senderId })=>{
-    setMessages((messages)=>[...messages, {firstName, text, senderId}])
-    })
+    const handler = ({ _id, firstName, text, senderId }) => {
+        setMessages((prev) => [...prev, { _id, firstName, text, senderId }]);
+      };
+    socketRef.current.on("messageReceived", handler)
     return () => {
-        socketRef.current.disconnect();
+        socketRef.current.off("messageReceived", handler)
       };
   },[userId, targetUserId])
 
