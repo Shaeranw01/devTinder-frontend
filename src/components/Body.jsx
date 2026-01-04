@@ -43,7 +43,7 @@ const Body = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar/>
-      <div className="flex-1 pb-28 overflow-y-auto">
+      <div className="flex-1 pb-28 sm:pb-32 overflow-y-auto">
   <Outlet />
 </div>
       <Footer/>

@@ -29,7 +29,7 @@ const Feed = () => {
      getFeed();
     },[])
     return (
-        <div className="flex flex-col items-center px-2 sm:px-4">
+        <div className="flex flex-col items-center px-2 sm:px-4 pb-28 sm:pb-32 overflow-y-auto w-full">
           {feed && feed.length > 0 ? (
             feed.map((user) => <UserCard key={user._id} user={user} />)
           ) : (

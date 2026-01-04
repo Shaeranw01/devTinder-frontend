@@ -65,7 +65,7 @@ const Chat = () => {
         </div>
 
         {/* Messages */}
-        <div className="flex-1 overflow-y-auto p-4 space-y-3">
+        <div className="flex-1 overflow-y-auto p-4 space-y-3 pb-32">
           {messages.map((msg) => {
             const isMe = msg.senderId === loggedInUser?._id;
             return (
